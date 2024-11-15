@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Send } from 'lucide-react';
 import toast from 'react-hot-toast';
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,29 +20,26 @@ const Contact = () => {
   };
 
   // Fonction pour gérer l'envoi du formulaire
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("https://www.creation2music.fr/send-email.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+    const serviceID = "service_1bgajxv";
+    const templateID = "template_djhq6fr";
+    const publicKey = "kmmCWXepdJoLlRxGF";
+
+    emailjs
+      .send(serviceID, templateID, formData, publicKey)
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          toast.success("Message envoyé avec succès !");
+          setFormData({ name: "", email: "", message: "" });
         },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        toast.success("Message envoyé avec succès !");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        toast.error(result.message || "Erreur lors de l'envoi du message.");
-      }
-    } catch (error) {
-      toast.error("Erreur de connexion au serveur.");
-    }
+        (err) => {
+          console.error("Échec de l'envoi :", err);
+          toast.error("Erreur lors de l'envoi du message.");
+        }
+      );
   };
 
   return (
@@ -161,20 +159,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-                        <div className="bg-purple-100 rounded-xl p-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Besoin d'aide ?
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Notre équipe est là pour répondre à toutes vos questions concernant :
-              </p>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Le processus de création</li>
-                <li>• Les délais de livraison</li>
-                <li>• Les modifications possibles</li>
-                <li>• Les formats de fichiers</li>
-              </ul>
-            </div>
+            
           </motion.div>
         </div>
       </div>

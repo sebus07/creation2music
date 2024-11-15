@@ -161,20 +161,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-purple-100 rounded-xl p-8">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Besoin d'aide ?
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Notre équipe est là pour répondre à toutes vos questions concernant :
-              </p>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Le processus de création</li>
-                <li>• Les délais de livraison</li>
-                <li>• Les modifications possibles</li>
-                <li>• Les formats de fichiers</li>
-              </ul>
-            </div>
           </motion.div>
         </div>
       </div>

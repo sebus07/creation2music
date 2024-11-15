@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Music, Heart, PartyPopper, Gift, Star, Users, Clock, Headphones, Sparkles, Cpu } from 'lucide-react';
+import { Music, Heart, PartyPopper, Gift, Star, Users, Clock, Headphones } from 'lucide-react';
 
 const Home = () => {
   const categories = [
@@ -9,19 +9,19 @@ const Home = () => {
       title: "Musique d'Anniversaire",
       icon: <Gift className="h-8 w-8" />,
       description: "Créez un moment magique pour célébrer cette journée spéciale.",
-      image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=1200",
+      image: "/images/ballon.webp",
     },
     {
       title: "Musique Romantique",
       icon: <Heart className="h-8 w-8" />,
-      description: "Exprimez vos sentiments à travers une mélodie unique personnalisé.",
-      image: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&q=80&w=1200",
+      description: "Exprimez vos sentiments à travers une mélodie unique.",
+      image: "/images/romance.webp",
     },
     {
       title: "Musique pour les Fêtes",
       icon: <PartyPopper className="h-8 w-8" />,
       description: "Animez vos célébrations avec une chanson sur mesure.",
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200",
+      image: "/images/fetes.webp",
     },
   ];
 
@@ -30,19 +30,19 @@ const Home = () => {
       name: "Marie L.",
       role: "Pour un anniversaire",
       content: "La chanson créée pour l'anniversaire de ma mère était parfaite. Elle en a pleuré de joie !",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+      image: "/images/tete2.webp",
     },
     {
       name: "Thomas R.",
       role: "Pour une demande en mariage",
       content: "Grâce à cette musique personnalisée, ma demande en mariage a été encore plus magique.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+      image: "/images/tete1.webp",
     },
     {
       name: "Sophie M.",
       role: "Pour une fête d'entreprise",
       content: "Un vrai succès ! Tous nos collaborateurs ont adoré cette création unique.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
+      image: "/images/tete3.webp",
     },
   ];
 
@@ -52,7 +52,7 @@ const Home = () => {
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80&w=2000"
+            src="/images/musique.webp"
             alt="Music Studio"
             className="w-full h-full object-cover"
           />
@@ -148,7 +148,7 @@ const Home = () => {
               {
                 icon: <Star className="h-8 w-8" />,
                 title: "3. Composition",
-                description: "Création de votre mélodie unique"
+                description: "Nos musiciens créent votre mélodie unique"
               },
               {
                 icon: <Clock className="h-8 w-8" />,
@@ -219,24 +219,20 @@ const Home = () => {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                L'Innovation au Service de la Musique Personnalisée
+                L'Art de la Musique Personnalisée
               </h2>
               <div className="prose prose-purple">
                 <p className="text-gray-600 mb-4">
-                  La musique a ce pouvoir unique de capturer les émotions et les moments précieux de notre vie. 
-                  Chez Musiques Personnalisées, nous utilisons les technologies les plus avancées pour transformer 
-                  vos histoires en mélodies uniques qui résonnent avec vos souvenirs les plus chers.
+                La musique a ce pouvoir unique de capturer les émotions et les moments précieux de notre vie. Chez Création2Musique, nous utilisons les technologies les plus avancées pour transformer vos histoires en mélodies uniques qui résonnent avec vos souvenirs les plus chers.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Chaque composition est créée avec précision grâce à notre technologie d'intelligence artificielle 
-                  de pointe, garantissant une qualité sonore exceptionnelle et une personnalisation parfaite pour 
-                  chaque occasion.
+                Chaque composition est créée avec précision grâce à notre technologie d'intelligence artificielle de pointe, garantissant une qualité sonore exceptionnelle et une personnalisation parfaite pour chaque occasion.
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div className="flex items-center space-x-2">
                   <Users className="h-5 w-5 text-purple-600" />
-                  <span className="text-gray-700">+500 clients satisfaits</span>
+                  <span className="text-gray-700">+100 clients satisfaits</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Star className="h-5 w-5 text-purple-600" />
@@ -252,13 +248,13 @@ const Home = () => {
               className="grid grid-cols-2 gap-4"
             >
               <img
-                src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&q=80&w=600"
-                alt="Technologie musicale"
+                src="/images/micro.webp"
+                alt="Studio d'enregistrement"
                 className="rounded-lg shadow-lg"
               />
               <img
-                src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=600"
-                alt="Creation musicale"
+                src="/images/mixage.webp"
+                alt="Musicien au travail"
                 className="rounded-lg shadow-lg mt-8"
               />
             </motion.div>

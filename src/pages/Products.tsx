@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Gift, Heart, PartyPopper, Clock, Check, ArrowRight, Music } from 'lucide-react';
+import toast from 'react-hot-toast';
 import MusicConfigModal from '../components/MusicConfigModal';
 import AudioCard from '../components/AudioCard';
-import toast from 'react-hot-toast';
 
 interface Product {
   id: string;
@@ -30,7 +30,7 @@ const Products = () => {
         "Livraison en 4 jours",
         "Une modification gratuite"
       ],
-      image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=1200"
+      image: "/images/ballon.webp"
     },
     {
       id: 'romantic',
@@ -43,7 +43,7 @@ const Products = () => {
         "Livraison en 4 jours",
         "Une modification gratuite"
       ],
-      image: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&q=80&w=1200"
+      image: "/images/romance.webp"
     },
     {
       id: 'party',
@@ -56,24 +56,24 @@ const Products = () => {
         "Livraison en 4 jours",
         "Une modification gratuite"
       ],
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200"
+      image: "/images/fetes.webp"
     }
   ];
 
   const musicSamples = [
     {
-      title: "Joyeux Anniversaire Pop",
+      title: "Joyeux Anniversaire Zoé",
       description: "Style pop moderne et enjoué",
       audioUrl: "/samples/birthday-pop.mp3"
     },
     {
-      title: "Ballade Romantique",
+      title: "Ballade Romantique Pour Rose",
       description: "Mélodie douce et romantique",
       audioUrl: "/samples/romantic-ballad.mp3"
     },
     {
-      title: "Ambiance Festive",
-      description: "Rythme entraînant pour vos célébrations",
+      title: "Viens Faire Ta Music",
+      description: "Rythme entraînant ",
       audioUrl: "/samples/party-groove.mp3"
     }
   ];
@@ -84,7 +84,7 @@ const Products = () => {
   };
 
   const handleConfigSubmit = (config: { style: string; message: string }) => {
-    toast.success('Configuration enregistrée ! Redirection vers le paiement...');
+    toast.success('Configuration enregistrée ! Nous vous contacterons pour finaliser la commande.');
     setIsModalOpen(false);
   };
 

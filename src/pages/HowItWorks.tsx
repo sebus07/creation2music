@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingCart, FileText, Mail, Download, Sparkles, Cpu, Sliders, Clock, Check, Users, Star } from 'lucide-react';
+import { ShoppingCart, FileText, Mail, Download, Music2, Mic, Headphones, Clock, Check, Users, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HowItWorks = () => {
@@ -9,41 +9,41 @@ const HowItWorks = () => {
       icon: <ShoppingCart className="h-8 w-8" />,
       title: "1. Choisissez votre type de musique",
       description: "Sélectionnez parmi nos trois catégories : anniversaire, romantique ou fête",
-      image: "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&q=80&w=600"
+      image: "/images/icila.webp"
     },
     {
       icon: <FileText className="h-8 w-8" />,
       title: "2. Personnalisez votre chanson",
       description: "Remplissez le formulaire détaillé après l'achat pour personnaliser votre musique",
-      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=600"
+      image: "/images/personnalisez.webp"
     },
     {
       icon: <Mail className="h-8 w-8" />,
       title: "3. Recevez votre proposition",
       description: "Nous vous envoyons une première version sous 4 jours par email",
-      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=600"
+      image: "/images/proposition.webp"
     },
     {
       icon: <Download className="h-8 w-8" />,
       title: "4. Téléchargez votre musique",
       description: "Validez la version finale ou demandez une modification, puis téléchargez votre création",
-      image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80&w=600"
+      image: "/images/telechargez.webp"
     }
   ];
 
   const features = [
     {
-      icon: <Sparkles className="h-6 w-6" />,
+      icon: <Music2 className="h-6 w-6" />,
       title: "IA de Pointe",
       description: "Utilisation de technologies d'IA avancées pour une création musicale innovante"
     },
     {
-      icon: <Cpu className="h-6 w-6" />,
+      icon: <Mic className="h-6 w-6" />,
       title: "Technologie Moderne",
       description: "Création assistée par les dernières avancées en intelligence artificielle"
     },
     {
-      icon: <Sliders className="h-6 w-6" />,
+      icon: <Headphones className="h-6 w-6" />,
       title: "Personnalisation Précise",
       description: "Ajustement fin des paramètres pour un résultat unique"
     }
@@ -63,8 +63,8 @@ const HowItWorks = () => {
             Comment ça marche ?
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez notre processus innovant de création musicale personnalisée,
-            alliant technologie de pointe et créativité
+            Découvrez notre processus simple en 4 étapes pour créer
+            votre musique personnalisée
           </p>
         </motion.div>
 
@@ -106,10 +106,10 @@ const HowItWorks = () => {
         <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Notre Technologie Innovante
+            Notre Technologie Innovante
             </h2>
             <p className="text-xl text-gray-600">
-              Une approche moderne de la création musicale personnalisée
+            Une approche moderne de la création musicale personnalisée
             </p>
           </div>
 
@@ -136,7 +136,7 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* Technology Section */}
+        {/* Studio Section */}
         <section className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -145,14 +145,11 @@ const HowItWorks = () => {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                L'Innovation au Service de la Musique
+              L'Innovation au Service de la Musique
               </h2>
               <div className="prose prose-purple">
                 <p className="text-gray-600 mb-6">
-                  Notre plateforme utilise les dernières avancées en intelligence artificielle 
-                  pour créer des compositions musicales uniques. Cette technologie nous permet 
-                  d'offrir une personnalisation poussée tout en maintenant une qualité sonore 
-                  exceptionnelle.
+                Notre plateforme utilise les dernières avancées en intelligence artificielle pour créer des compositions musicales uniques. Cette technologie nous permet d'offrir une personnalisation poussée tout en maintenant une qualité sonore exceptionnelle.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center text-gray-600">
@@ -176,8 +173,8 @@ const HowItWorks = () => {
               transition={{ duration: 0.5 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&q=80&w=1200"
-                alt="Technologie musicale"
+                src="/images/ia_control.webp"
+                alt="Studio d'enregistrement"
                 className="rounded-xl shadow-lg"
               />
             </motion.div>
@@ -220,7 +217,7 @@ const HowItWorks = () => {
             to="/products"
             className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors duration-300"
           >
-            <Sparkles className="mr-2 h-5 w-5" />
+            <Music2 className="mr-2 h-5 w-5" />
             Découvrir Nos Offres
           </Link>
         </section>

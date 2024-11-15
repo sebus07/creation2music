@@ -10,16 +10,38 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implémenter l'envoi du formulaire
-    toast.success('Message envoyé avec succès !');
-    setFormData({ name: '', email: '', message: '' });
+  // Fonction pour gérer les changements des champs
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+  // Fonction pour gérer l'envoi du formulaire
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("https://www.creation2music.fr/send-email.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast.success("Message envoyé avec succès !");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error(result.message || "Erreur lors de l'envoi du message.");
+      }
+    } catch (error) {
+      toast.error("Erreur de connexion au serveur.");
+    }
   };
 
   return (
@@ -139,7 +161,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
             <div className="bg-purple-100 rounded-xl p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 Besoin d'aide ?

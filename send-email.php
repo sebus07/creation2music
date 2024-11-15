@@ -1,34 +1,74 @@
-<?php
-header("Content-Type: application/json");
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
-$response = ['success' => false, 'message' => 'Erreur inconnue.'];
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $message = $_POST['message'] ?? '';
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-    if (!empty($name) && !empty($email) && !empty($message)) {
-        // Assurez-vous que l'email est valide
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Logique d'envoi de l'email
-            $to = "contact@sebastien-koenig.fr"; // Remplacez par votre adresse email
-            $subject = "Nouveau message de $name";
-            $body = "Nom: $name\nEmail: $email\nMessage:\n$message";
-            $headers = "From: $email";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-            if (mail($to, $subject, $body, $headers)) {
-                $response['success'] = true;
-                $response['message'] = "Message envoyé avec succès.";
-            } else {
-                $response['message'] = "Erreur lors de l'envoi de l'email.";
-            }
-        } else {
-            $response['message'] = "Adresse email invalide.";
-        }
-    } else {
-        $response['message'] = "Tous les champs sont obligatoires.";
+    try {
+      const response = await fetch('https://www.creation2music.fr/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast.success('Message envoyé avec succès !');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        toast.error(result.message || 'Erreur lors de l\'envoi.');
+      }
+    } catch (error) {
+      toast.error('Erreur de connexion au serveur.');
     }
-}
+  };
 
-echo json_encode($response);
+  return (
+    <div>
+      <h1>Contactez-nous</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Votre nom"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Votre email"
+          required
+        />
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Votre message"
+          required
+        />
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  );
+};
+
+export default Contact;

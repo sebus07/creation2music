@@ -1,19 +1,16 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "dist"
-      }
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "env": {
+    "VITE_PAYPAL_CLIENT_ID": "ATM5efviK2KwHQ_doHbY3auLehWHD8WqVzSvBoxsSdmT1PlLtz4klO7Mgyr5Ffkpkhimqak3to7K6NRb",
+    "VITE_MODE": "sandbox",
+    "VITE_API_URL": "https://votre-api.vercel.app"
+  }
 }

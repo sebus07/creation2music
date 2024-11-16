@@ -8,6 +8,33 @@
       "destination": "/index.html"
     }
   ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        }
+      ]
+    }
+  ],
   "env": {
     "VITE_PAYPAL_CLIENT_ID": "ATM5efviK2KwHQ_doHbY3auLehWHD8WqVzSvBoxsSdmT1PlLtz4klO7Mgyr5Ffkpkhimqak3to7K6NRb",
     "VITE_MODE": "sandbox",

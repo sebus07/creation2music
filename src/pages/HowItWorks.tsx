@@ -8,13 +8,13 @@ const HowItWorks = () => {
     {
       icon: <ShoppingCart className="h-8 w-8" />,
       title: "1. Choisissez votre type de musique",
-      description: "Sélectionnez parmi nos trois catégories : anniversaire, romantique ou fête",
+      description: "Sélectionnez parmi nos catégories : anniversaire, romantique ou fête...",
       image: "/images/icila.webp"
-    },
+  
     {
       icon: <FileText className="h-8 w-8" />,
       title: "2. Personnalisez votre chanson",
-      description: "Remplissez le formulaire détaillé après l'achat pour personnaliser votre musique",
+      description: "Remplissez le formulaire lors de l'achat pour personnaliser votre musique",
       image: "/images/personnalisez.webp"
     },
     {
@@ -188,7 +188,7 @@ const HowItWorks = () => {
               <div className="flex items-center justify-center mb-4">
                 <Users className="h-8 w-8 text-purple-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2">100+</div>
               <div className="text-gray-600">Clients Satisfaits</div>
             </div>
             <div className="text-center">

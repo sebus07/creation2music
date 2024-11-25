@@ -148,7 +148,7 @@ const Home = () => {
               {
                 icon: <Star className="h-8 w-8" />,
                 title: "3. Composition",
-                description: "Nos musiciens créent votre mélodie unique"
+                description: "Nous créons, grâce à l'intelligence artificielle"
               },
               {
                 icon: <Clock className="h-8 w-8" />,

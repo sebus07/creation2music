@@ -10,7 +10,7 @@ const HowItWorks = () => {
       title: "1. Choisissez votre type de musique",
       description: "Sélectionnez parmi nos catégories : anniversaire, romantique ou fête...",
       image: "/images/icila.webp"
-  
+    },
     {
       icon: <FileText className="h-8 w-8" />,
       title: "2. Personnalisez votre chanson",
